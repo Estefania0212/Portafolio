@@ -1,0 +1,163 @@
+import React, { useState } from 'react';
+import { styled } from '@mui/material/styles';
+import { Typography } from '@mui/material';
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import ReactCardFlip from 'react-card-flip';
+import { Typewriter } from 'react-simple-typewriter';
+import { FaStar } from "react-icons/fa";
+
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+// Iconos
+import {
+  FaJava, FaPhp, FaJs, FaLaravel, FaReact, FaHtml5, FaCss3Alt, FaBootstrap,
+  FaLightbulb, FaUsers, FaBrain, FaClipboardList, FaComments, FaSyncAlt,
+  FaHeart, FaBookOpen, FaCheckCircle
+} from "react-icons/fa";
+import { SiSpringboot, SiMysql, SiPostgresql, SiMongodb } from "react-icons/si";
+
+const StarRating = ({ stars }) => {
+  return (
+    <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+      {[...Array(5)].map((_, i) => (
+        <FaStar key={i} color={i < stars ? "#FFD700" : "#ccc"} size={20} />
+      ))}
+    </div>
+  );
+};
+
+// Habilidades Técnicas
+const skills = [
+  { name: "Java", icon: <FaJava color="#f89820" fontSize={160} />, rating: 4 },
+  { name: "PHP", icon: <FaPhp color="#8892BF" fontSize={160} />, rating: 4 },
+  { name: "JavaScript", icon: <FaJs color="#F7DF1E" fontSize={160} />, rating: 3 },
+  { name: "Laravel", icon: <FaLaravel color="#FF2D20" fontSize={160} />, rating: 4 },
+  { name: "React", icon: <FaReact color="#61DAFB" fontSize={160} />, rating: 5 },
+  { name: "Spring Boot", icon: <SiSpringboot color="#6DB33F" fontSize={160} />, rating: 2 },
+  { name: "HTML5", icon: <FaHtml5 color="#E34F26" fontSize={160} />, rating: 5 },
+  { name: "CSS", icon: <FaCss3Alt color="#1572B6" fontSize={160} />, rating: 5 },
+  { name: "Bootstrap", icon: <FaBootstrap color="#7952B3" fontSize={160} />, rating: 5 },
+  { name: "MySQL", icon: <SiMysql color="#4479A1" fontSize={160} />, rating: 5 },
+  { name: "PostgreSQL", icon: <SiPostgresql color="#336791" fontSize={160} />, rating: 4 },
+  { name: "MongoDB", icon: <SiMongodb color="#4DB33D" fontSize={160} />, rating: 3 }
+];
+
+
+// Habilidades Blandas
+const softSkills = [
+  { name: "Disciplinada", icon: <FaClipboardList fontSize={80} color="#fff" /> },
+  { name: "Comunicación asertiva", icon: <FaComments fontSize={80} color="#fff" /> },
+  { name: "Adaptación rápida", icon: <FaSyncAlt fontSize={80} color="#fff" /> },
+  { name: "Organizada y Perfeccionista", icon: <FaClipboardList fontSize={80} color="#fff" /> },
+  { name: "Resolución de problemas", icon: <FaBrain fontSize={80} color="#fff" /> },
+  { name: "Creatividad y proactividad", icon: <FaLightbulb fontSize={80} color="#fff" /> },
+  { name: "Trabajo en equipo", icon: <FaUsers fontSize={80} color="#fff" /> },
+  { name: "Empatía", icon: <FaHeart fontSize={80} color="#fff" /> },
+  { name: "Aprendizaje ágil", icon: <FaBookOpen fontSize={80} color="#fff" /> },
+  { name: "Compromiso y responsabilidad", icon: <FaCheckCircle fontSize={80} color="#fff" /> },
+];
+
+const FlipCard = ({ name, icon }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const handleClick = () => setIsFlipped(!isFlipped);
+
+  return (
+    <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+      <CardFront onClick={handleClick}>{icon}</CardFront>
+      <CardBack onClick={handleClick}><CardTitle>{name}</CardTitle></CardBack>
+    </ReactCardFlip>
+  );
+};
+
+const Skills = ({ title, id }) => (
+  <Section id={id}>
+    <Typography variant="h3" sx={{ fontFamily: "cursive", textAlign: "center", color: "#fff" }}>
+      {title}
+    </Typography>
+    <br />
+    <Typography variant="body2" sx={{ textAlign: "left" }}>
+      <Title>
+        <Typewriter words={["Habilidades Técnicas"]} loop={0} cursor cursorStyle="|" typeSpeed={100} deleteSpeed={50} delaySpeed={2000} />
+      </Title>
+    </Typography>
+    <Swiper modules={[Navigation, Pagination, A11y, Autoplay]} spaceBetween={0} slidesPerView={3} navigation pagination={{ clickable: true }} autoplay={{ delay: 2500, disableOnInteraction: false }} loop>
+      {skills.map((skill, index) => (
+        <SwiperSlide key={index}>
+        <SkillBox>
+          <IconWrapper>{skill.icon}</IconWrapper>
+          <span>{skill.name}</span>
+          <StarRating stars={skill.rating} />
+        </SkillBox>
+      </SwiperSlide>
+      
+      ))}
+    </Swiper>
+    <Typography variant="body2" sx={{ textAlign: "left" }}>
+      <Title>
+        <Typewriter words={["Habilidades Blandas"]} loop={0} cursor cursorStyle="|" typeSpeed={100} deleteSpeed={50} delaySpeed={2000} />
+      </Title>
+    </Typography>
+    <CardContainer>
+      {softSkills.map((skill, index) => (
+        <FlipCard key={index} name={skill.name} icon={skill.icon} />
+      ))}
+    </CardContainer>
+  </Section>
+);
+
+const Section = styled('div')({
+  minHeight: '100vh',
+  color: '#ff00dc',
+  background: '#0f0f0f',
+  textAlign: 'center',
+  padding: '10px 0',
+  
+});
+
+const Title = styled('span')({
+  color: "#ff0099",
+  fontFamily: "monospace",
+  fontSize: "30px",
+  display: "inline-block",
+  margin: 20,
+  borderBottom: "2px solid #ff0099"
+});
+
+const SkillBox = styled('div')({
+  color: '#fff',
+  padding: '15px',
+  textAlign: 'center',
+  width: '100%',
+  overflowX: 'hidden'
+});
+
+const IconWrapper = styled('div')({ fontSize: '40px', marginBottom: '8px' });
+
+const CardContainer = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  flexWrap: 'wrap',
+  gap: '20px'
+});
+
+const CardFront = styled('div')({
+  backgroundColor: '#333',
+  padding: '20px',
+  borderRadius: '10px',
+  width: '200px',
+  height: '200px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer'
+});
+
+const CardBack = styled(CardFront)({ color:'#fff', backgroundColor: '#555' });
+
+const CardTitle = styled('span')({ fontSize: '20px', fontWeight: 'bold' });
+
+export default Skills;
