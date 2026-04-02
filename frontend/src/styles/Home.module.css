@@ -1,0 +1,71 @@
+.section {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 88vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.card {
+  background-color: #121212;
+  max-width: 390px;
+  border-radius: 5%;
+  margin: 0 auto;
+  max-height: 400px;
+  text-align: center;
+}
+
+.perfil {
+  width: 150px;
+  height: 150px;
+  padding: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 7px solid #ff0099;
+}
+
+.nombre {
+  text-align: center;
+  color: #fff;
+  font-weight: 900;
+  border-bottom: 2px solid #ff0099;
+  transition: all 0.3s ease;
+}
+
+.nombre:hover {
+  color: #ff0099;
+  transform: scale(1.1);
+}
+
+.button {
+  margin: 0 auto;
+  background: linear-gradient(45deg, #ff0099, #ff00dc);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-transform: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: linear-gradient(45deg, #ff00dc, #ff0099);
+  transform: scale(1.05);
+}
+
+.downloadLink {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
