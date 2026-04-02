@@ -1,0 +1,32 @@
+.section {
+  min-height: 100vh;
+  background: #121212;
+  color: #fff;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: cursive;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.timelineContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+:global(.vertical-timeline-element-content) {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+:global(.vertical-timeline-element-content:hover) {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #ff0099;
+}

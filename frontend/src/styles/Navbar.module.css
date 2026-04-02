@@ -1,0 +1,79 @@
+.navbar {
+  background-color: #121212 !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.toolbar {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-family: Arial;
+  color: #ff0099;
+  font-weight: 900;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.navList {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.2rem;
+  font-family: cursive;
+  align-items: center;
+}
+
+.navList a {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navList a:hover {
+  cursor: pointer;
+  color: #ff0099;
+  border-bottom: 2px solid #ff0099;
+  transform: scale(1.05);
+}
+
+.menuIcon {
+  display: none;
+}
+
+.drawer {
+  background-color: #121212 !important;
+  width: 250px;
+  color: #fff;
+}
+
+.drawerItem {
+  font-family: cursive;
+  font-size: 0.9rem;
+  margin-left: 1rem;
+  transition: all 0.3s ease;
+}
+
+.drawerItem:hover {
+  cursor: pointer;
+  color: #ff0099;
+  border-bottom: 2px solid #ff0099;
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .navList {
+    display: none;
+  }
+
+  .menuIcon {
+    display: block;
+    color: #ff0099;
+  }
+}

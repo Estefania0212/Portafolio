@@ -17,7 +17,7 @@ const Home = ({ title, id }) => {
           {title}
         </Typography>
 
-        <Card className={styles.card}>
+        <Card className={styles.card} elevation={0}>
           <CardMedia
             className={styles.perfil}
             image={images}
