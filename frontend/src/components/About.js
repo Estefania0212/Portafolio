@@ -18,11 +18,9 @@ const About = ({ title, id }) => {
         <Typography className={styles.introductionText}>
           <span className={styles.highlight}>
             Hola, soy Estefanía Moreno Reyes
-          </span>{" "}
-          estudiante de Ingeniería de Sistemas apasionada por el desarrollo de
+          </span>{" "}estudiante de Ingeniería de Sistemas apasionada por el desarrollo de
           software, con una sólida formación en el área. Tengo experiencia en
-          trabajo en equipo, adaptación rápida y aprendizaje ágil. Me destaco en
-          la creación de soluciones innovadoras y efectivas, y busco
+          trabajo en equipo, adaptación rápida y aprendizaje ágil. Me destaco en la creación de soluciones innovadoras y efectivas, y busco
           constantemente oportunidades para optimizar procesos.
         </Typography>
 

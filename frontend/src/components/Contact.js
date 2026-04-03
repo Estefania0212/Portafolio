@@ -1,24 +1,15 @@
-import React from 'react'
-import { styled } from '@mui/material/styles';
+import React from 'react';
 import { Typography } from '@mui/material';
+import styles from "../styles/Contact.module.css";
+
 const Contact = ({ title, id }) => {
   return (
-    <Section>
-       <div  id={id} sx={{ maxwidth:"88vw", margin: "0 auto"}}>
-         <Typography variant= "h3">{title}</Typography>
+    <div className={styles.section}>
+      <div id={id} className={styles.container}>
+        <Typography variant="h3">{title}</Typography>
       </div>
-    </Section>
-   
-  )
-}
-
-// Estilos
-const Section = styled('div')(({ theme }) => ({
-  minHeight: '100vh',
-  color: '#ff00dc',
-  background: 'black',
-  overflowX: 'hidden',
-}));
-
+    </div>
+  );
+};
 
 export default Contact;

@@ -1,0 +1,11 @@
+.section {
+  min-height: 100vh;
+  color: #ff00dc;
+  background: black;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 88vw;
+  margin: 0 auto;
+}

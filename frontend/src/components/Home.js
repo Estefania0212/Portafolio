@@ -31,7 +31,7 @@ const Home = ({ title, id }) => {
 
             <Typography variant="body2">
               <TypeWriterEffect
-                text="Tecnóloga en Desarrollo de Sistemas Informáticos"
+                text="Ingeniera de Sistemas"
                 textStyle={{
                   color: "#fff",
                   textAlign: 'center',

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,12 +6,10 @@ import ReactCardFlip from 'react-card-flip';
 import { Typewriter } from 'react-simple-typewriter';
 import { FaStar } from "react-icons/fa";
 
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// Iconos
 import {
   FaJava, FaPhp, FaJs, FaLaravel, FaReact, FaHtml5, FaCss3Alt, FaBootstrap,
   FaLightbulb, FaUsers, FaBrain, FaClipboardList, FaComments, FaSyncAlt,
@@ -20,17 +17,18 @@ import {
 } from "react-icons/fa";
 import { SiSpringboot, SiMysql, SiPostgresql, SiMongodb } from "react-icons/si";
 
-const StarRating = ({ stars }) => {
-  return (
-    <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-      {[...Array(5)].map((_, i) => (
-        <FaStar key={i} color={i < stars ? "#FFD700" : "#ccc"} size={20} />
-      ))}
-    </div>
-  );
-};
+import styles from "../styles/Skills.module.css";
 
-// Habilidades Técnicas
+
+const StarRating = ({ stars }) => (
+  <div className={styles.stars}>
+    {[...Array(5)].map((_, i) => (
+      <FaStar key={i} color={i < stars ? "#FFD700" : "#ccc"} size={20} />
+    ))}
+  </div>
+);
+
+// skills 
 const skills = [
   { name: "Java", icon: <FaJava color="#f89820" fontSize={160} />, rating: 4 },
   { name: "PHP", icon: <FaPhp color="#8892BF" fontSize={160} />, rating: 4 },
@@ -46,8 +44,7 @@ const skills = [
   { name: "MongoDB", icon: <SiMongodb color="#4DB33D" fontSize={160} />, rating: 3 }
 ];
 
-
-// Habilidades Blandas
+// soft skills 
 const softSkills = [
   { name: "Disciplinada", icon: <FaClipboardList fontSize={80} color="#fff" /> },
   { name: "Comunicación asertiva", icon: <FaComments fontSize={80} color="#fff" /> },
@@ -63,101 +60,67 @@ const softSkills = [
 
 const FlipCard = ({ name, icon }) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const handleClick = () => setIsFlipped(!isFlipped);
 
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-      <CardFront onClick={handleClick}>{icon}</CardFront>
-      <CardBack onClick={handleClick}><CardTitle>{name}</CardTitle></CardBack>
+      <div className={styles.cardFront} onClick={() => setIsFlipped(true)}>
+        {icon}
+      </div>
+
+      <div className={styles.cardBack} onClick={() => setIsFlipped(false)}>
+        <span className={styles.cardTitle}>{name}</span>
+      </div>
     </ReactCardFlip>
   );
 };
 
 const Skills = ({ title, id }) => (
-  <Section id={id}>
-    <Typography variant="h3" sx={{ fontFamily: "cursive", textAlign: "center", color: "#fff" }}>
+  <div id={id} className={styles.section}>
+
+    <Typography variant="h2"
+          sx={{ fontFamily: "cursive", textAlign: "center", color: "#fff" }}>
       {title}
     </Typography>
-    <br />
-    <Typography variant="body2" sx={{ textAlign: "left" }}>
-      <Title>
-        <Typewriter words={["Habilidades Técnicas"]} loop={0} cursor cursorStyle="|" typeSpeed={100} deleteSpeed={50} delaySpeed={2000} />
-      </Title>
+
+    <Typography className={styles.subtitleWrapper}>
+      <span className={styles.title}>
+        <Typewriter words={["Habilidades Técnicas"]} loop={0} cursor cursorStyle="|" />
+      </span>
     </Typography>
-    <Swiper modules={[Navigation, Pagination, A11y, Autoplay]} spaceBetween={0} slidesPerView={3} navigation pagination={{ clickable: true }} autoplay={{ delay: 2500, disableOnInteraction: false }} loop>
+
+    <Swiper
+      modules={[Navigation, Pagination, A11y, Autoplay]}
+      spaceBetween={0}
+      slidesPerView={3}
+      navigation
+      pagination={{ clickable: true }}
+      autoplay={{ delay: 2500, disableOnInteraction: false }}
+      loop
+    >
       {skills.map((skill, index) => (
         <SwiperSlide key={index}>
-        <SkillBox>
-          <IconWrapper>{skill.icon}</IconWrapper>
-          <span>{skill.name}</span>
-          <StarRating stars={skill.rating} />
-        </SkillBox>
-      </SwiperSlide>
-      
+          <div className={styles.skillBox}>
+            <div className={styles.iconWrapper}>{skill.icon}</div>
+            <span>{skill.name}</span>
+            <StarRating stars={skill.rating} />
+          </div>
+        </SwiperSlide>
       ))}
     </Swiper>
-    <Typography variant="body2" sx={{ textAlign: "left" }}>
-      <Title>
-        <Typewriter words={["Habilidades Blandas"]} loop={0} cursor cursorStyle="|" typeSpeed={100} deleteSpeed={50} delaySpeed={2000} />
-      </Title>
+
+    <Typography className={styles.subtitleWrapper}>
+      <span className={styles.title}>
+        <Typewriter words={["Habilidades Blandas"]} loop={0} cursor cursorStyle="|" />
+      </span>
     </Typography>
-    <CardContainer>
+
+    <div className={styles.cardContainer}>
       {softSkills.map((skill, index) => (
-        <FlipCard key={index} name={skill.name} icon={skill.icon} />
+        <FlipCard key={index} {...skill} />
       ))}
-    </CardContainer>
-  </Section>
+    </div>
+
+  </div>
 );
-
-const Section = styled('div')({
-  minHeight: '100vh',
-  color: '#ff00dc',
-  background: '#0f0f0f',
-  textAlign: 'center',
-  padding: '10px 0',
-  
-});
-
-const Title = styled('span')({
-  color: "#ff0099",
-  fontFamily: "monospace",
-  fontSize: "30px",
-  display: "inline-block",
-  margin: 20,
-  borderBottom: "2px solid #ff0099"
-});
-
-const SkillBox = styled('div')({
-  color: '#fff',
-  padding: '15px',
-  textAlign: 'center',
-  width: '100%',
-  overflowX: 'hidden'
-});
-
-const IconWrapper = styled('div')({ fontSize: '40px', marginBottom: '8px' });
-
-const CardContainer = styled('div')({
-  display: 'flex',
-  justifyContent: 'center',
-  flexWrap: 'wrap',
-  gap: '20px'
-});
-
-const CardFront = styled('div')({
-  backgroundColor: '#333',
-  padding: '20px',
-  borderRadius: '10px',
-  width: '200px',
-  height: '200px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  cursor: 'pointer'
-});
-
-const CardBack = styled(CardFront)({ color:'#fff', backgroundColor: '#555' });
-
-const CardTitle = styled('span')({ fontSize: '20px', fontWeight: 'bold' });
 
 export default Skills;
