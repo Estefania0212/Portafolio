@@ -9,8 +9,10 @@ import {
   ToggleButton,
   ToggleButtonGroup
 } from "@mui/material";
-import images from '../images/Portafolio.PNG';
+import portafolio from '../images/Portafolio.PNG';
+import reddan from '../images/reddan.png';
 import styles from "../styles/Projects.module.css";
+import preoperacional from '../images/Preoperacional.png';
 
 const projects = [
   {
@@ -29,16 +31,25 @@ const projects = [
   },
   {
     title: "App de Preoperacionales",
-    description: "Desarrollo en PHP para gestión de vehículos en Asfaltar S.A.S.",
-    image: "https://via.placeholder.com/300",
-    link: "https://github.com/tuusuario/preoperacionales",
+    description: "Desarrollo en PHP para gestión de vehículos en Asfaltar S.A.S."
+    + "https://portafolio-git-main-estefania0212s-projects.vercel.app/",
+    image: preoperacional,
+    link: "https://github.com/Estefania0212/Preoperacional-Trabajo-de-Grado-",
     category: "Móvil"
   },
   {
     title: "Portafolio",
-    description: "Desarrollo de portafolio personal usando React y Node.js",
-    image: images,
+    description: "Desarrollo de portafolio personal usando React y Node.js" 
+    + "https://portafolio-git-main-estefania0212s-projects.vercel.app/",
+    image: portafolio,
     link: "https://github.com/Estefania0212/Portafolio",
+    category: "Backend"
+  },
+  {
+    title: "RedDan Technology (Proyecto de Aula)",
+    description: "Desarrollo de un sistema de control de acceso y aforo usando Java y PostgresSQL.",
+    image: reddan,
+    link: "https://github.com/Estefania0212/Sistema-de-Control-de-Acceso-y-Aforo-Red-Dan-Technology-Proyecto-de-Aula-o",
     category: "Backend"
   }
 ];
