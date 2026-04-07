@@ -13,8 +13,19 @@
   max-width: 88vw;
   margin: 0 auto;
   text-align: center;
+  gap: 15px; 
 }
 
+.btnContainer {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.btnProject {
+  background: #f321a3 !important;
+}
 
 .filterButtons {
   margin-bottom: 30px;

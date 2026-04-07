@@ -118,14 +118,31 @@ const Projects = ({ title, id }) => {
                     {project.description}
                   </Typography>
 
-                  <Button
-                    variant="contained"
-                    className={styles.btnProject}
-                    href={project.link}
-                    target="_blank"
-                  >
-                    Ver Proyecto
-                  </Button>
+                    <div className={styles.btnContainer}>
+                      <Button
+                        variant="contained"
+                        className={styles.btnProject}
+                        href={project.link}
+                        target="_blank"
+                      >
+                        GitHub
+                      </Button>
+
+                      {project.demo && (
+                        <Button
+                          variant="contained"
+                          className={styles.btnProject}
+                          href={
+                            project.demo.startsWith("http")
+                              ? project.demo
+                              : `https://${project.demo}`
+                          }
+                          target="_blank"
+                        >
+                          Ver Demo
+                        </Button>
+                      )}
+                    </div>
                 </CardContent>
               </Card>
 
