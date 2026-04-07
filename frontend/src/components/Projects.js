@@ -13,13 +13,14 @@ import portafolio from '../images/Portafolio.PNG';
 import reddan from '../images/reddan.png';
 import styles from "../styles/Projects.module.css";
 import preoperacional from '../images/Preoperacional.png';
-
+import calculadoraalfabetos from '../images/Calculadora-alfabetos.png';
 const projects = [
   {
     title: "Calculadora de Conjuntos",
     description: "Aplicación en PHP que realiza operaciones sobre conjuntos.",
-    image: "https://via.placeholder.com/300",
-    link: "https://github.com/tuusuario/calculadora-conjuntos",
+    image: calculadoraalfabetos,
+    demo: "calculadora-de-lenguajes-formales-interactiva-production.up.railway.app",
+    link: "https://github.com/Estefania0212/Calculadora-de-Lenguajes-Formales-Interactiva",
     category: "Web"
   },
   {
@@ -31,18 +32,18 @@ const projects = [
   },
   {
     title: "App de Preoperacionales",
-    description: "Desarrollo en PHP para gestión de vehículos en Asfaltar S.A.S."
-    + "https://portafolio-git-main-estefania0212s-projects.vercel.app/",
+    description: "Desarrollo en PHP para gestión de vehículos en Asfaltar S.A.S.",
+    demo: "https://web-production-2a69f.up.railway.app",
     image: preoperacional,
     link: "https://github.com/Estefania0212/Preoperacional-Trabajo-de-Grado-",
     category: "Móvil"
   },
   {
     title: "Portafolio",
-    description: "Desarrollo de portafolio personal usando React y Node.js" 
-    + "https://portafolio-git-main-estefania0212s-projects.vercel.app/",
+    description: "Desarrollo de portafolio personal usando React y Node.js",
     image: portafolio,
-    link: "https://github.com/Estefania0212/Portafolio",
+    github: "https://github.com/Estefania0212/Portafolio",
+    demo: "https://portafolio-git-main-estefania0212s-projects.vercel.app/",
     category: "Backend"
   },
   {
