@@ -24,7 +24,7 @@ const projects = [
     category: "Web"
   },
   {
-    title: "Sistema de Gestión de Riesgos",
+    title: "Sistema",
     description: "Proyecto para una empresa financiera usando microservicios.",
     image: "https://via.placeholder.com/300",
     link: "https://github.com/tuusuario/sistema-riesgos",
