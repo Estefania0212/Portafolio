@@ -14,6 +14,10 @@ import reddan from '../images/reddan.png';
 import styles from "../styles/Projects.module.css";
 import preoperacional from '../images/Preoperacional.png';
 import calculadoraalfabetos from '../images/Calculadora-alfabetos.png';
+import videojuego2d from '../images/videojuego2d.PNG';
+import videojuego3d from '../images/videojuego3d.PNG';
+import compilador from '../images/compilador.PNG';    
+
 const projects = [
   {
     title: "Calculadora de Conjuntos",
@@ -52,10 +56,31 @@ const projects = [
     image: reddan,
     link: "https://github.com/Estefania0212/Sistema-de-Control-de-Acceso-y-Aforo-Red-Dan-Technology-Proyecto-de-Aula-o",
     category: "Backend"
+  },
+  {
+    title: "Videojuego Unity 2D - La Odisea de Luna ",
+    description: "Desarrollo de Videjuego en 2D usando Unity version 2022.3.7",
+    image: videojuego2d,
+    link: "https://github.com/Estefania0212/Videojuego-2D-Unity",
+    category: "Videojuegos"
+  },
+  {
+    title: "Videojuego Unity 3D - La Odisea de Luna",
+    description: "Desarrollo de Videjuego en 3D usando Unity version 2022.3.7 y Blender",
+    image: videojuego3d,
+    link: "https://github.com/Estefania0212/Videojuego-3D-Unity",
+    category: "Videojuegos"
+  },
+  {
+    title: "Compilador de Python",
+    description: "Desarrollo de un compilador en Python con interfaz gráfica usando Tkinter. Incluye análisis léxico, sintáctico y semántico, generación de árbol de sintaxis abstracta (AST) y ejecución de código interpretado.",
+    image: compilador,
+    link: "https://github.com/Estefania0212/Compilador-de-Python",
+    category: "Backend"
   }
 ];
 
-const categories = ["Todos", "Web", "Backend", "Móvil"];
+const categories = ["Todos", "Web", "Backend", "Móvil", "Videojuegos"];
 
 const Projects = ({ title, id }) => {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
